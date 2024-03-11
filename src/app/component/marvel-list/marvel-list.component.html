@@ -1,0 +1,26 @@
+@if (marvelResponse$ | async; as marvelResponse) {
+    <div class="container main-container">
+      <h3>Personajes Universo Marvel</h3>
+      <hr>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+          @for(marvelCharacter of marvelResponse.data.results; track marvelCharacter.id){
+              <div class="col">
+                  <div class="card w-55 h-100">
+                    <img src="{{marvelCharacter.thumbnail.path.concat('.').concat(marvelCharacter.thumbnail.extension)}}" class="card-img-top" alt="...">
+                    <div class="card-body" >
+                      <h5 class="card-title">{{marvelCharacter.name}}</h5>
+                      <p class="card-text">{{marvelCharacter.description}}</p>
+                    </div>
+                  </div>
+               </div>        
+          }@empty {
+            <h3>No se encontraron personajes del universo marvel</h3>
+          }
+        </div>
+    </div>
+  }
+  
+  
+  
+  
+  
