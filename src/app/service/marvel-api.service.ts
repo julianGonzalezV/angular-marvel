@@ -3,6 +3,7 @@ import { MarvelApiRespose } from '../MarvelTypes';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { fakeMarvelData$ } from '../fake-data';
+import { MARVEL_API_KEY, MARVEL_HASH } from './service-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ import { fakeMarvelData$ } from '../fake-data';
 export class MarvelApiService {
 
   marvelUrl = 'http://gateway.marvel.com/v1/public/characters?nameStartsWith=ir';
-  apiKey = ''
-  hash = ''
+  apiKey = MARVEL_API_KEY;
+  hash = MARVEL_HASH
   constructor(private http: HttpClient) { }
 
 
